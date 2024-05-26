@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { DesktopOutlined, PieChartOutlined, FileAddOutlined, HomeOutlined } from '@ant-design/icons';
+import { Toaster } from 'react-hot-toast';
 
 const { Sider, Content } = Layout;
 
@@ -29,6 +30,7 @@ const DashboardLayout = () => {
       <Layout className="site-layout">
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+          <Toaster/>
             <Outlet />
           </div>
         </Content>

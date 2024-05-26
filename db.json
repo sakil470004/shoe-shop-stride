@@ -2,7 +2,7 @@
   "shoes": [
     {
       "id": "1",
-      "title": "Air Max 270",
+      "title": "Air Max 270 Sakil Version",
       "brand": "Nike",
       "price": "160",
       "description": "The Nike Air Max 270 combines modern comfort with a throwback style inspired by the Air Max 180 and Air Max 93.",
@@ -10,9 +10,9 @@
     },
     {
       "id": "2",
-      "title": "UltraBoost 21",
+      "title": "UltraBoost 21 sakil version 2",
       "brand": "Adidas",
-      "price": 180,
+      "price": "180",
       "description": "The Adidas UltraBoost 21 features a bold new design with an improved Boost midsole for ultimate comfort and energy return.",
       "image_url": "https://img.freepik.com/free-psd/running-shoes-sneakers-transparent-background_84443-1610.jpg?t=st=1716454855~exp=1716458455~hmac=7bbba604387bb3447eb82633eaf611178ba651580f20fd9d4a5610fa1c6bbd40&w=1480"
     },
