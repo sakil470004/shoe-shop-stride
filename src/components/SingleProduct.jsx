@@ -24,8 +24,8 @@ const SingleProduct = ({ shoe }) => {
           {description.slice(0, 35)}
         </p>
         <div className="flex justify-between mt-2">
-          <button className="btn btn-error text-white">Add To Cart</button>
-          <button className="btn btn-info text-white">
+          <button className="btn btn-sm btn-error text-white">Add To Cart</button>
+          <button className="btn btn-sm btn-info text-white">
             <Link to={`/products/${id}`}>See details</Link>
           </button>
         </div>

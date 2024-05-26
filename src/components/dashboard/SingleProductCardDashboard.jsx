@@ -14,7 +14,7 @@ const SingleProductCardDashboard = ({ shoe, onDelete }) => {
       .then((data) => {
         console.log(data);
         onDelete(id);
-        toast.success('Successfully Delete!')
+        toast.success("Successfully Delete!");
       });
   };
 
@@ -24,20 +24,32 @@ const SingleProductCardDashboard = ({ shoe, onDelete }) => {
         <img src={image_url} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <h3 className="text-xl font-semibold">{brand}</h3>
-        <h3 className="text-xl font-semibold">{price}</h3>
-        <p>{description}</p>
-        <div className="card-actions justify-end">
-          <button className="btn bg-indigo-500 text-white">
+        <div className="flex justify-between">
+          <h2 className="card-title ">{title}</h2>
+          <h3 className="text-error font-bold text-xl"> ${price}</h3>
+        </div>
+        <h6 className="text-md  badge badge-outline badge-accent px-3 font-semibold">
+          {brand}
+        </h6>
+
+        <p className="font-extralight text-gray-500">
+          {description.slice(0, 35)}
+        </p>
+        <div className="flex justify-between mt-2">
+          <button className="btn btn-sm btn-info ">
             <Link to={`/products/${id}`}>See details</Link>
           </button>
-          <button className="btn bg-green-600 text-white">
-            <Link to={`edit/${id}`}>Edit</Link>
-          </button>
-          <button onClick={handleDelete} className="btn bg-red-500 text-white">
-            Delete
-          </button>
+          <div className="flex gap-2">
+            <button className="btn btn-sm btn-outline btn-success">
+              <Link to={`edit/${id}`}>Edit</Link>
+            </button>
+            <button
+              onClick={handleDelete}
+              className="btn btn-sm btn-error text-white"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>
