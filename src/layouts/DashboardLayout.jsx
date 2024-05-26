@@ -14,7 +14,7 @@ const DashboardLayout = () => {
         <div className="logo text-center my-6 text-3xl text-white font-bold" >Shoe Shop</div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
-            <Link to="/">Dashboard</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<DesktopOutlined />}>
             <Link to="all-products">All Products</Link>
