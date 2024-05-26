@@ -39,15 +39,14 @@ const Registration = () => {
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Register now!</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Register to create an account and access all the features of the
+            app.
           </p>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
             <div className="form-control">
-              <label className="label">
+              <label className="label font-bold">
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -59,7 +58,7 @@ const Registration = () => {
               />
             </div>
             <div className="form-control">
-              <label className="label">
+              <label className="label font-bold">
                 <span className="label-text">Password</span>
               </label>
               <input
@@ -71,7 +70,7 @@ const Registration = () => {
               />
             </div>
             <div className="form-control">
-              <label className="label">
+              <label className="label font-bold">
                 <span className="label-text">Confirm Password</span>
               </label>
               <input
