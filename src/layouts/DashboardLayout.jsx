@@ -10,16 +10,16 @@ const DashboardLayout = () => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider>
-        <div className="logo" />
+        <div className="logo text-center my-6 text-3xl text-white font-bold" >Shoe Shop</div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
-            <Link to="/home">Dashboard</Link>
+            <Link to="/">Dashboard</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<DesktopOutlined />}>
-            <Link to="/all-products">All Products</Link>
+            <Link to="all-products">All Products</Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<FileAddOutlined />}>
-            <Link to="/add-products">Add Product</Link>
+            <Link to="add-products">Add Product</Link>
           </Menu.Item>
           <Menu.Item key="4" icon={<HomeOutlined />}>
             <Link to="/">Home</Link>

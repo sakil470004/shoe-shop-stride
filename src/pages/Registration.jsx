@@ -2,6 +2,7 @@ import { useState } from "react";
 import GoogleLogin from "../components/Login-Registration/GoogleLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Registration = () => {
   const [passMatch, setPassMatch] = useState(true);
@@ -26,10 +27,14 @@ const Registration = () => {
     console.log(email, password, confirm_password);
 
     if (password === confirm_password) {
-      createUser(email, password);
-      if (user) {
-        navigate(from);
-      }
+      createUser(email, password)
+        .then(() => {
+          toast.success("Successfully Login!");
+          navigate(from, { replace: true });
+        })
+        .catch((error) => {
+          toast.error(error.message);
+        });
     }
   };
 

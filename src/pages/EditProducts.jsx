@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const EditProducts = () => {
@@ -32,7 +33,10 @@ const EditProducts = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        toast.success("Successfully Edited!");
+      });
   };
 
   return (
@@ -105,7 +109,7 @@ const EditProducts = () => {
             <input
               className="btn mt-4 w-full bg-red-500 text-white p-4"
               type="submit"
-              value="Add product"
+              value="Update Product"
             />
           </div>
         </form>

@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../components/Login-Registration/GoogleLogin";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signIn, user } = useAuth();
@@ -19,7 +20,10 @@ const Login = () => {
 
     console.log(email, password);
 
-    await signIn(email, password);
+    await signIn(email, password).then(() => {
+      toast.success('Successfully Login!')
+      navigate(from, { replace: true });
+    });   
   };
 
   useEffect(() => {
