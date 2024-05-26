@@ -32,18 +32,21 @@ const Accordian = () => {
     },
   ];
   return (
-    <div className="my-20 px-8 w-3/4 mx-auto flex flex-col gap-5">
-      {faqArray.map((faq) => (
-        <div className="collapse collapse-arrow bg-gray-200" key={faq.id}>
-          <input type="radio" name="my-accordion-2" defaultChecked />
-          <div className="collapse-title text-xl font-medium">
-            {faq.question}
+    <div className="my-20 px-8 w-3/4 mx-auto ">
+      <h1 className="text-3xl font-bold text-center my-6">FAQ</h1>
+      <div className="flex flex-col gap-5 border-l-4 pl-3 border-l-green-200">
+        {faqArray.map((faq) => (
+          <div className="collapse collapse-arrow bg-gray-200" key={faq.id}>
+            <input type="radio" name="my-accordion-2" defaultChecked />
+            <div className="collapse-title text-xl font-medium">
+              {faq.question}
+            </div>
+            <div className="collapse-content">
+              <p>{faq.answer}</p>
+            </div>
           </div>
-          <div className="collapse-content">
-            <p>{faq.answer}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

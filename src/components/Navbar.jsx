@@ -4,9 +4,9 @@ import useAuth from "../hooks/useAuth";
 const Navbar = () => {
   const { logout, user } = useAuth();
 
-  const handleLogout = async()=>{
-    await logout()
-  }
+  const handleLogout = async () => {
+    await logout();
+  };
 
   return (
     <div className="navbar bg-base-100">
@@ -65,7 +65,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl font-bold">         <Link to={"/"}>Shoe Shop</Link></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -76,14 +76,9 @@ const Navbar = () => {
             <Link to={"/about"}>About</Link>
           </li>
           {!user && (
-            <>
-              <li>
-                <Link to={"/login"}>Login</Link>
-              </li>
-              <li>
-                <Link to={"/register"}>Register</Link>
-              </li>
-            </>
+            <li>
+              <Link to={"/register"}>Register</Link>
+            </li>
           )}
           {user && (
             <li>
@@ -93,19 +88,26 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end space-x-2">
-        {user && (
-          <button
-            onClick={handleLogout}
-            className="btn bg-red-500 text-white hidden lg:block"
-          >
-            Logout
+        {user ? (
+          <>
+            <button
+              onClick={handleLogout}
+              className="btn bg-red-500 text-white hidden lg:block"
+            >
+              Logout
+            </button>
+
+            <div className="avatar">
+              <div className="w-12 rounded-full border-2 border-black">
+                <img src={user?.photoURL || "/public/placeholder.jpg"} />
+              </div>
+            </div>
+          </>
+        ) : (
+          <button className="btn bg-blue-500 text-white hidden lg:block">
+          <Link to={"/login"}>Login</Link>
           </button>
         )}
-        <div className="avatar">
-          <div className="w-12 rounded-full border-2 border-black">
-            <img src={user?.photoURL || "/public/placeholder.jpg"} />
-          </div>
-        </div>
       </div>
     </div>
   );
