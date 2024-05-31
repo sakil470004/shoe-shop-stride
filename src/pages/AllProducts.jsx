@@ -5,13 +5,16 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/shoes/")
+    fetch("http://localhost:5000/shoes/")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      });
   }, []);
 
   const handleDeleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+    setProducts(products.filter((product) => product._id !== id));
   };
 
   return (
@@ -20,7 +23,7 @@ const AllProducts = () => {
       <div className="my-16 flex flex-wrap gap-4">
         {products.map((shoe) => (
           <SingleProductCardDashboard
-            key={shoe.id}
+            key={shoe._id}
             shoe={shoe}
             onDelete={handleDeleteProduct}
           />

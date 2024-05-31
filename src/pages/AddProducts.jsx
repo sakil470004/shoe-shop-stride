@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -14,7 +13,7 @@ const AddProducts = () => {
 
     const data = { title, brand, price, description, image_url };
 
-    await fetch("http://localhost:3000/shoes", {
+    await fetch("http://localhost:5000/shoes", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -24,12 +23,14 @@ const AddProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success("Successfully Added Shoe!");
-        setTitle("");
-        setBrand("");
-        setPrice("");
-        setDescription("");
-        setImageURL("");
+        if (data.insertedId) {
+          toast.success("Successfully Added Shoe!");
+          setTitle("");
+          setBrand("");
+          setPrice("");
+          setDescription("");
+          setImageURL("");
+        }
       })
       .catch((error) => {
         toast.error(error.message);
@@ -92,9 +93,6 @@ const AddProducts = () => {
 };
 
 export default AddProducts;
-
-
-
 
 // import toast from "react-hot-toast";
 

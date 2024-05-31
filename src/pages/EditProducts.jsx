@@ -8,25 +8,25 @@ const EditProducts = () => {
   const [title, setTitle] = useState(shoe.title);
   const [price, setPrice] = useState(shoe.price);
   const [brand, setBrand] = useState(shoe.brand);
-  const [id, setId] = useState(shoe.id);
+  const _id = shoe._id;
   const [description, setDescription] = useState(shoe.description);
   const [image_url, setImageURL] = useState(shoe.image_url);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const form = e.target;
-    const id = form.id.value;
+
     const title = form.title.value;
     const brand = form.brand.value;
     const price = form.price.value;
     const description = form.description.value;
     const image_url = form.image_url.value;
 
-    const data = { id, title, brand, price, description, image_url };
+    const data = { _id, title, brand, price, description, image_url };
 
-    await fetch(`http://localhost:3000/shoes/${shoe.id}`, {
+    await fetch(`http://localhost:5000/shoes/${shoe._id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
@@ -36,8 +36,10 @@ const EditProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success("Successfully Edited!");
-        navigate("/dashboard/all-products", { replace: true });
+        if (data.modifiedCount > 0) {
+          toast.success("Successfully Edited!");
+          navigate("/dashboard/all-products", { replace: true });
+        }
       });
   };
 
@@ -86,14 +88,7 @@ const EditProducts = () => {
           value={image_url}
           onChange={(e) => setImageURL(e.target.value)}
         />
-        <input
-          className="input input-bordered w-full"
-          type="text"
-          name="id"
-          placeholder="ID"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-        />
+
         <input
           className="btn btn-primary w-full"
           type="submit"
