@@ -28,9 +28,22 @@ const Registration = () => {
 
     if (password === confirm_password) {
       createUser(email, password)
-        .then(() => {
+        .then((data) => {
           toast.success("Successfully Login!");
-          navigate(from, { replace: true });
+
+          const userInfo = {
+            name: data.user.displayName,
+            email: data.user.email,
+          };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(userInfo),
+          }).then(() => {
+            navigate(from, { replace: true });
+          });
         })
         .catch((error) => {
           toast.error(error.message);

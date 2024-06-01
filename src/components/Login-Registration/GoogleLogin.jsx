@@ -11,9 +11,27 @@ const GoogleLogin = () => {
   const from = location?.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
-    googleLogin().then(() => {
-      toast.success('Successfully Login!')
-      navigate(from);
+    googleLogin().then((data) => {
+      toast.success("Successfully Login!");
+      console.log(data);
+      if (data?.user?.email) {
+        const userInfo = {
+          name: data.user.displayName,
+          email: data.user.email,
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+          });
+      }
     });
   };
 

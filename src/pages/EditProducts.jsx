@@ -15,7 +15,7 @@ const EditProducts = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const token = localStorage.getItem("token");
     const form = e.target;
 
     const title = form.title.value;
@@ -30,6 +30,7 @@ const EditProducts = () => {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
+        authorization: "Bearer " + token,
       },
       body: JSON.stringify(data),
     })
