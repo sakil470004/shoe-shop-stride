@@ -27,7 +27,7 @@ const AddProducts = () => {
           toast.success("Successfully Added Shoe!");
           setTitle("");
           setBrand("");
-          setPrice("");
+          setPrice(""); 
           setDescription("");
           setImageURL("");
         }
